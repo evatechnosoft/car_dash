@@ -1,0 +1,22 @@
+# Flutter/Dart
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+
+# Skills & External Tools (Repurpose Rule)
+skills/
+projects/ (exclude other projects if any)
+*.md
+brain/
+
+# IDE/System
+.vscode/
+.idea/
+.vs/
+.DS_Store
+*.lock
+*.log
