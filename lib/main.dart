@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'presentation/widgets/futuristic_gauge.dart';
+import 'presentation/widgets/dynamic_background.dart';
 
 void main() {
   runApp(const CarDashApp());
@@ -32,7 +33,7 @@ class DashboardScreen extends StatefulWidget {
 
 class _DashboardScreenState extends State<DashboardScreen> {
   double _speed = 0;
-  double _battery = 85;
+  final double _battery = 85;
 
   @override
   Widget build(BuildContext context) {
@@ -42,14 +43,19 @@ class _DashboardScreenState extends State<DashboardScreen> {
           gradient: RadialGradient(
             center: Alignment.center,
             radius: 1.5,
-            colors: [
-              Color(0xFF1A1D2D),
-              Color(0xFF0A0B10),
-            ],
+            colors: [Color(0xFF1A1D2D), Color(0xFF0A0B10)],
           ),
         ),
         child: Stack(
           children: [
+            // Dynamic Background Layer
+            Positioned.fill(
+              child: DynamicBackground(
+                speed: _speed,
+                accentColor: Colors.cyanAccent,
+              ),
+            ),
+
             // Top Status Bar
             Positioned(
               top: 40,
@@ -109,7 +115,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     onChanged: (val) => setState(() => _speed = val),
                     activeColor: Colors.cyanAccent,
                   ),
-                  const Text("DRAG TO TEST SPEED", style: TextStyle(color: Colors.white24, fontSize: 10)),
+                  const Text(
+                    "DRAG TO TEST SPEED",
+                    style: TextStyle(color: Colors.white24, fontSize: 10),
+                  ),
                 ],
               ),
             ),
@@ -126,7 +135,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
         const SizedBox(width: 8),
         Text(
           label,
-          style: const TextStyle(color: Colors.white30, fontSize: 10, letterSpacing: 1),
+          style: const TextStyle(
+            color: Colors.white30,
+            fontSize: 10,
+            letterSpacing: 1,
+          ),
         ),
       ],
     );
