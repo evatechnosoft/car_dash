@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../domain/models/gauge_config.dart';
 import '../painters/vertical_bar_gauge_painter.dart';
 
 class VerticalInfoBar extends StatelessWidget {
@@ -7,6 +8,9 @@ class VerticalInfoBar extends StatelessWidget {
   final String label;
   final String unit;
   final Color accentColor;
+  final double glowIntensity;
+
+  final GaugeVariant variant;
 
   const VerticalInfoBar({
     super.key,
@@ -15,6 +19,8 @@ class VerticalInfoBar extends StatelessWidget {
     required this.label,
     required this.unit,
     this.accentColor = Colors.cyanAccent,
+    this.glowIntensity = 0.5,
+    this.variant = GaugeVariant.standard,
   });
 
   @override
@@ -30,6 +36,7 @@ class VerticalInfoBar extends StatelessWidget {
               max: max,
               label: label,
               accentColor: accentColor,
+              glowIntensity: glowIntensity,
             ),
           ),
         ),

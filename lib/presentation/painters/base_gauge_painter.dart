@@ -6,12 +6,14 @@ abstract class BaseGaugePainter extends CustomPainter {
   final double min;
   final double max;
   final Color accentColor;
+  final double glowIntensity;
 
   BaseGaugePainter({
     required this.value,
     this.min = 0,
     this.max = 200,
     this.accentColor = Colors.cyanAccent,
+    this.glowIntensity = 0.5,
   });
 
   double get angle => (value - min) / (max - min) * 240 * (pi / 180);

@@ -1,4 +1,3 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
 
 class PowerFlowPainter extends CustomPainter {
@@ -12,7 +11,7 @@ class PowerFlowPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final center = Offset(size.width / 2, size.height / 2);
+    // final center = Offset(size.width / 2, size.height / 2); // Unused
     final paint = Paint()
       ..color = Colors.white10
       ..style = PaintingStyle.stroke
